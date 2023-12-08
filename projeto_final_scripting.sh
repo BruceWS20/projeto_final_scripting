@@ -30,5 +30,5 @@ for ((i=0; i<$count; i++))
 do
     password=$(generate_password $length)
 
-    echo $password
+    echo $password
 done
