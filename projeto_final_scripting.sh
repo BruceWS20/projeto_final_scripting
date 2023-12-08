@@ -30,6 +30,6 @@ echo "A criar $count passwords com número de caracteres $length..."
 for ((i=0; i<$count; i++))
 do
     password=$(generate_password $length)
-
-    echo $password
+    echo "Password $(($i + 1)) de $(($count)): $password"
+    # echo $password
 done
