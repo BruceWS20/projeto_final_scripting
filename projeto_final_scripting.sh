@@ -20,25 +20,30 @@
     echo "$password"
 }
 
+# Função para ver as passwords no ficheiro txt
+view_passwords() {
+    nome_ficheiro="passwords.txt"
+    if [ -e "$nome_ficheiro" ]; then
+        echo "Senhas armazenadas em $nome_ficheiro:"
+        cat "$nome_ficheiro"
+    else
+        echo "Nenhum ficheiro de passwords encontrado."
+    fi
+}
+
+# Opção para ver passwords antes de criar novas
+read -p "Deseja ver as passwords existentes? (s/n): " view_option
+if [ "$view_option" == "s" ]; then
+    view_passwords
+fi
+
 # Leitura dos dados
 read -p "Número de caracteres: " length
 read -p "Quantas passwords?: " count
 
-echo "A criar $count passwords com número de caracteres $length..."
-
-# Output do Script
-for ((i=0; i<$count; i++))
-do
-    password=$(generate_password $length)
-    echo "Password $(($i + 1)) de $(($count)): $password"
-    # echo $password
-done
+echo "A criar $count passwords com número de caracteres $length e a guardar em $nome_ficheiro..."
 
 # Parte do Script para guardar as passwords num ficheiro
-
-# Leitura dos dados
-read -p "Número de caracteres: " length
-read -p "Quantas senhas?: " count
 
 # Nome do ficheiro para armazenar as passwords
 nome_ficheiro="passwords.txt"
@@ -48,13 +53,13 @@ if [ ! -e "$nome_ficheiro" ]; then
     touch "$nome_ficheiro"
 fi
 
-echo "A criar $count passwords com número de caracteres $length e a guardar em $nome_ficheiro..."
-
 # Output do Script
-for ((i=0; i<$count; i++)); do
+for ((i=0; i<$count; i++)); 
+do
     password=$(generate_password $length)
-    echo "Senha $(($i + 1)) de $(($count)): $password"
+    echo "Password $(($i + 1)) de $(($count)): $password"
     echo "$password" >> "$nome_ficheiro"
 done
-
 echo "Passwords armazenadas em $nome_ficheiro."
+
+
