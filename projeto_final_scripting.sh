@@ -20,6 +20,9 @@
     echo "$password"
 }
 
+
+# Parte do Script para guardar as passwords num ficheiro
+
 # Leitura dos dados
 read -p "Número de caracteres: " length
 read -p "Quantas passwords?: " count
