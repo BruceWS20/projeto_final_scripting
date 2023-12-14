@@ -33,3 +33,26 @@ do
     echo "Password $(($i + 1)) de $(($count)): $password"
     # echo $password
 done
+
+# Leitura dos dados
+read -p "Número de caracteres: " length
+read -p "Quantas senhas?: " count
+
+# Nome do ficheiro para armazenar as passwords
+nome_ficheiro="passwords.txt"
+
+# Verificar se o ficheiro já existe; se não, criar um novo
+if [ ! -e "$nome_ficheiro" ]; then
+    touch "$nome_ficheiro"
+fi
+
+echo "A criar $count passwords com número de caracteres $length e a guardar em $nome_ficheiro..."
+
+# Output do Script
+for ((i=0; i<$count; i++)); do
+    password=$(generate_password $length)
+    echo "Senha $(($i + 1)) de $(($count)): $password"
+    echo "$password" >> "$nome_ficheiro"
+done
+
+echo "Passwords armazenadas em $nome_ficheiro."
