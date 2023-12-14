@@ -20,6 +20,9 @@
     echo "$password"
 }
 
+# Nome do ficheiro para armazenar as passwords
+nome_ficheiro="passwords.txt"
+
 # Função para ver as passwords no ficheiro txt
 view_passwords() {
     nome_ficheiro="passwords.txt"
@@ -35,18 +38,16 @@ view_passwords() {
 read -p "Deseja ver as passwords existentes? (s/n): " view_option
 if [ "$view_option" == "s" ]; then
     view_passwords
+    else
+    # Leitura dos dados apenas se a opção for negativa
+    read -p "Número de caracteres: " length
+    read -p "Quantas passwords?: " count
+
 fi
 
-# Leitura dos dados
-read -p "Número de caracteres: " length
-read -p "Quantas passwords?: " count
-
-echo "A criar $count passwords com número de caracteres $length e a guardar em $nome_ficheiro..."
+ echo "A criar $count passwords com número de caracteres $length e a guardar em $nome_ficheiro..."
 
 # Parte do Script para guardar as passwords num ficheiro
-
-# Nome do ficheiro para armazenar as passwords
-nome_ficheiro="passwords.txt"
 
 # Verificar se o ficheiro já existe; se não, criar um novo
 if [ ! -e "$nome_ficheiro" ]; then
@@ -60,6 +61,7 @@ do
     echo "Password $(($i + 1)) de $(($count)): $password"
     echo "$password" >> "$nome_ficheiro"
 done
-echo "Passwords armazenadas em $nome_ficheiro."
+    echo "Passwords armazenadas em $nome_ficheiro."
+fi
 
 
