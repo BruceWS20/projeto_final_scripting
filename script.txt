@@ -1,0 +1,13 @@
+Simular o Login
+
+Pedia a  introdução de um username 
+
+Pedia a introdução de uma password
+
+
+
+Resultado: 
+
+ ou user autenticado 
+
+ ou credenciais inválidas
