@@ -1,7 +1,3 @@
-username, password
-antrob, XYZW
-ruibrau, OPRTS
-...
-
-
-
+Rui:bash2024
+André:28592
+Pedro:github123
